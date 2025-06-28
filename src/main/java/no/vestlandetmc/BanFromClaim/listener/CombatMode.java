@@ -24,13 +24,16 @@ public class CombatMode implements Listener {
 
 		final long time = System.currentTimeMillis() / 1000;
 
+
 		if (TIME.containsKey(attacker.getUniqueId())) {
-			if (ATTACKER.get(attacker.getUniqueId()).equals(victim.getUniqueId()))
-				return;
+			if (!ATTACKER.get(attacker.getUniqueId()).equals(victim.getUniqueId())){
+				ATTACKER.put(victim.getUniqueId(), attacker.getUniqueId());
+			}
+
 		}
 
 		TIME.put(victim.getUniqueId(), time);
-		ATTACKER.put(victim.getUniqueId(), attacker.getUniqueId());
+
 
 	}
 

@@ -1,7 +1,10 @@
 package no.vestlandetmc.BanFromClaim.listener;
 
+import nl.marido.deluxecombat.events.CombatlogEvent;
 import no.vestlandetmc.BanFromClaim.BfcPlugin;
 import no.vestlandetmc.BanFromClaim.handler.MessageHandler;
+import no.vestlandetmc.BanFromClaim.handler.ParticleHandler;
+import no.vestlandetmc.BanFromClaim.hooks.RegionHook;
 import no.vestlandetmc.BanFromClaim.utils.UpdateNotification;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -21,6 +24,19 @@ public class PlayerListener implements Listener {
 				MessageHandler.sendMessage(player, "&aGet the new update at &2https://modrinth.com/plugin/" + UpdateNotification.getProjectSlug());
 			}
 		}
+	}
+
+	@EventHandler(ignoreCancelled = true)
+	public void playerCombatLog(CombatlogEvent e) {
+		final Player player = e.getCombatlogger();
+
+		final RegionHook regionHook = BfcPlugin.getHookManager().getActiveRegionHook();
+		final String regionID = regionHook.getRegionID(player);
+		final ParticleHandler ph = new ParticleHandler(player.getLocation());
+
+		if (regionID == null) return;
+
+
 	}
 
 }
