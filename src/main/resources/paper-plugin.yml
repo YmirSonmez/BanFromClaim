@@ -18,6 +18,3 @@ dependencies:
     Residence:
       load: BEFORE
       required: false
-    DeluxeCombat:
-      load: BEFORE
-      required: true

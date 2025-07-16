@@ -16,11 +16,10 @@ repositories {
 
 dependencies {
     compileOnly fileTree(dir: 'libs', include: ['*.jar'])
-    compileOnly 'io.papermc.paper:paper-api:1.21.5-R0.1-SNAPSHOT'
+    compileOnly 'io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT'
     compileOnly 'com.github.GriefPrevention:GriefPrevention:16.18.4'
     compileOnly 'com.griefdefender:api:2.1.1-SNAPSHOT'
     implementation 'org.bstats:bstats-bukkit:3.1.0'
-    compileOnly 'com.github.timderspieler:DeluxeCombat-API:1.5.1'
 }
 
 shadowJar {
