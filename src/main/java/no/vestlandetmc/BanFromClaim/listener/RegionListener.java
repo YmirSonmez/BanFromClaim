@@ -113,7 +113,7 @@ public class RegionListener implements Listener {
 	}
 
 	private boolean canBypass(Player player) {
-		return player.hasPermission("bfc.bypass") || player.getGameMode().equals(GameMode.SPECTATOR);
+		return player.hasPermission("bfc.bypass");
 	}
 
 	private boolean playerBanned(Player player, String claimID) {
