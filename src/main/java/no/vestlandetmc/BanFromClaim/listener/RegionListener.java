@@ -1,5 +1,6 @@
 package no.vestlandetmc.BanFromClaim.listener;
 
+import me.ryanhamshire.GriefPrevention.events.ClaimExpirationEvent;
 import no.vestlandetmc.BanFromClaim.BfcPlugin;
 import no.vestlandetmc.BanFromClaim.config.ClaimData;
 import no.vestlandetmc.BanFromClaim.config.Config;
@@ -7,6 +8,7 @@ import no.vestlandetmc.BanFromClaim.config.Messages;
 import no.vestlandetmc.BanFromClaim.handler.MessageHandler;
 import no.vestlandetmc.BanFromClaim.handler.ParticleHandler;
 import no.vestlandetmc.BanFromClaim.hooks.RegionHook;
+import no.vestlandetmc.BanFromClaim.utils.BothTextParser;
 import no.vestlandetmc.BanFromClaim.utils.LocationFinder;
 import no.vestlandetmc.BanFromClaim.utils.PlayerRidePlayer;
 import org.bukkit.Bukkit;
@@ -149,5 +151,11 @@ public class RegionListener implements Listener {
         }
 
         return false;
+    }
+
+    @EventHandler
+    public void onClaimExpiration(ClaimExpirationEvent e) {
+        BfcPlugin.getPlugin().getServer().sendMessage(BothTextParser.parse("<b><gradient:#FF0000:#F95C5C>⚡ CLAIM PATLADI ⚡</gradient></b> &8| &fSahibi uzun zamandır girmediği için" +
+                " &a" + e.getClaim().getGreaterBoundaryCorner().getBlockX() + ", " + e.getClaim().getGreaterBoundaryCorner().getBlockZ() + " &fkordinatlarındaki claim kaldırıldı."));
     }
 }
